@@ -253,7 +253,11 @@ function assertLocalPluginMcp() {
 }
 
 function refreshFumadocsSource() {
-  execFileSync('fumadocs-mdx', [], { cwd: rootDir, stdio: 'inherit' });
+  execFileSync(
+    process.execPath,
+    [resolve('node_modules/fumadocs-mdx/bin.js')],
+    { cwd: rootDir, stdio: 'inherit' },
+  );
 }
 
 function parseFrontmatter(raw: string) {
